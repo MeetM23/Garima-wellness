@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GARIMA Wellness Center | Coach Aruna Modashia</title>
+  <link rel="icon" href="./public/favicon.png" type="image/png">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Poppins (400, 500, 600) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#234B3A',
+              light: '#2F5F4A',
+              dark: '#1A392C',
+              surface: '#EAF0EC'
+            },
+            sage: {
+              DEFAULT: '#A7B9A1',
+              light: '#D5DFD1',
+              soft: '#EDF2EB',
+              dark: '#7E9677'
+            },
+            ivory: {
+              DEFAULT: '#F8F7F1',
+              warm: '#F2EFE9',
+              sand: '#E9E4D8'
+            },
+            terracotta: {
+              DEFAULT: '#C68C72',
+              light: '#DFB3A0',
+              soft: '#F6ECE6',
+              dark: '#A3684F'
+            },
+            charcoal: {
+              DEFAULT: '#252A26',
+              muted: '#5A615B',
+              subtle: '#8A948C',
+              border: '#E2E5E0'
+            }
+          },
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+            sans: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F8F7F1;
+      color: #252A26;
+      font-family: 'Poppins', sans-serif;
+    }
+    .heading-hero {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: clamp(34px, 5.5vw, 56px);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #252A26;
+    }
+    .heading-section {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+      color: #252A26;
+    }
+    .heading-card {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: clamp(17px, 2vw, 19px);
+      line-height: 1.35;
+      letter-spacing: -0.005em;
+      color: #252A26;
+    }
+    .text-subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: clamp(14px, 1.8vw, 16px);
+      line-height: 1.7;
+      color: #5A615B;
+    }
+    .text-body {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.72;
+      color: #5A615B;
+    }
+    .text-label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .btn-primary {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 26px;
+      border-radius: 9999px;
+      background-color: #234B3A;
+      color: #F8F7F1;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(35, 75, 58, 0.12);
+    }
+    .btn-primary:hover {
+      background-color: #2F5F4A;
+      box-shadow: 0 4px 12px rgba(35, 75, 58, 0.18);
+    }
+    .btn-secondary {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      background-color: #FFFFFF;
+      color: #252A26;
+      border: 1px solid #E2E5E0;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background-color: #F8F7F1;
+      border-color: #A7B9A1;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-poppins antialiased selection:bg-primary selection:text-ivory">
+
+  <!-- ==================== HEADER (OFFICIAL SUPPLIED LOGO) ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-ivory/95 backdrop-blur-md border-b border-charcoal-border/50 py-3 transition-all">
+    <div class="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 flex items-center justify-between">
+      
+      <!-- Official Supplied Brand Logo -->
+      <a href="#hero" class="flex items-center gap-2.5 sm:gap-3 select-none group">
+        <img src="./public/images/brand/garima-logo-transparent.png" alt="Garima Wellness Center Official Logo" class="h-9 w-auto object-contain">
+        <div class="flex flex-col">
+          <span class="font-poppins font-semibold text-lg tracking-[0.14em] text-primary uppercase leading-none">GARIMA</span>
+          <span class="text-[8.5px] tracking-[0.22em] uppercase font-poppins font-medium text-charcoal-muted mt-0.5">WELLNESS CENTER</span>
+        </div>
+      </a>
+
+      <!-- Clean Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-7 text-[14px] font-poppins font-medium text-charcoal-muted">
+        <a href="#hero" class="hover:text-charcoal transition-colors">Home</a>
+        <a href="#approach" class="hover:text-charcoal transition-colors">Our Approach</a>
+        <a href="#archive" class="hover:text-charcoal transition-colors">Results</a>
+        <a href="#testimonials" class="hover:text-charcoal transition-colors">Testimonials</a>
+        <a href="#contact" class="hover:text-charcoal transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Items -->
+      <div class="flex items-center gap-3">
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-charcoal-border/80 text-xs font-poppins font-medium text-charcoal bg-white hover:border-primary hover:text-primary transition-colors">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-sage-dark"></i>
+          <span id="langLabel">ગુજરાતી</span>
+        </button>
+
+        <a href="#contact" class="hidden sm:inline-flex btn-primary !py-2.5 !px-5 text-xs font-semibold uppercase tracking-wider">
+          <span class="lang-en">Book Consultation</span>
+          <span class="lang-gu hidden">કન્સલ્ટેશન બુક કરો</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 ml-1"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="hero" class="relative pt-28 pb-16 md:pt-36 md:pb-24 lg:pt-40 lg:pb-28 bg-ivory">
+    <div class="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <div class="lg:col-span-7 flex flex-col items-start space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-charcoal-border/80 shadow-xs">
+            <span class="w-2 h-2 rounded-full bg-primary"></span>
+            <span class="text-label text-charcoal">
+              <span class="lang-en">Garima Wellness Center • Una, Gujarat</span>
+              <span class="lang-gu hidden">ગરિમા વેલનેસ સેન્ટર • ઉના</span>
+            </span>
+          </div>
+
+          <h1 class="heading-hero">
+            <span class="lang-en">
+              Sustainable Health, <span class="text-primary font-semibold">Measurable</span> Transformations.
+            </span>
+            <span class="lang-gu hidden">
+              યોગ્ય પોષણ અને સાચી જીવનશૈલીથી <span class="text-primary font-semibold">તંદુરસ્ત જીવનની</span> નવી શરૂઆત.
+            </span>
+          </h1>
+
+          <p class="text-subtitle max-w-xl">
+            <span class="lang-en">
+              No extreme starvation or temporary crash diets. Experience lifelong vitality and visceral fat reduction through personalized nutrition, habit guidance, and 1-on-1 coaching by Aruna Modashia.
+            </span>
+            <span class="lang-gu hidden">
+              કઠોર ભૂખમરા વિના — કોચ અરૂણા મોડાશીયાના અંગત માર્ગદર્શન, સંતુલિત ઘરેલું પોષણ અને રોજિંદી આદતો દ્વારા સાચી શારીરિક સુખાકારી મેળવો.
+            </span>
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto pt-1">
+            <a href="#contact" class="btn-primary group">
+              <span class="lang-en">Book a Consultation</span>
+              <span class="lang-gu hidden">કન્સલ્ટેશન શરૂ કરો</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+            </a>
+
+            <a href="#archive" class="btn-secondary">
+              <span class="lang-en">Explore Client Results</span>
+              <span class="lang-gu hidden">પરિણામો જુઓ</span>
+            </a>
+          </div>
+
+          <div class="pt-6 border-t border-charcoal-border/60 w-full grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="flex items-center gap-2 text-xs font-poppins text-charcoal-muted font-medium">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-primary"></i>
+              <span>1-on-1 Mentorship</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-poppins text-charcoal-muted font-medium">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-primary"></i>
+              <span>No Starvation Diets</span>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-poppins text-charcoal-muted font-medium">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-primary"></i>
+              <span>Online & Una Center</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-2xl overflow-hidden bg-white p-3 shadow-md border border-charcoal-border/70 max-w-md mx-auto lg:max-w-none">
+            <div class="relative aspect-[4/5] rounded-xl overflow-hidden bg-ivory-warm">
+              <img src="./public/images/transformations/transformation-1-fatloss-9kg-clean.jpg" alt="Verified Fat Loss Transformation" class="w-full h-full object-cover object-top">
+              <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-label !text-[10px] text-primary border border-charcoal-border/40 shadow-xs">
+                Verified Case Study
+              </div>
+            </div>
+            <div class="p-4 pt-3.5">
+              <div class="flex items-baseline justify-between">
+                <h2 class="heading-card">-9 kg Visceral Fat & -7" Waist</h2>
+                <span class="text-label !text-[11px] text-terracotta-dark">Aches Relieved</span>
+              </div>
+              <p class="text-body !text-xs mt-1 font-light">Targeted bad fat loss, active daily energy, and total relief from chronic bodily fatigue.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OUR APPROACH / PROCESS ==================== -->
+  <section id="approach" class="py-20 lg:py-24 bg-ivory border-t border-charcoal-border/40">
+    <div class="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-14">
+        <span class="text-label text-terracotta">Process & Methodology</span>
+        <h2 class="heading-section mt-2">
+          A Disciplined, <span class="text-primary font-semibold">Four-Step</span> Transformation.
+        </h2>
+        <p class="text-subtitle mt-3 font-light">
+          We reject short-lived diet fads. True physical vitality is systematically built through routine evaluation, clean dietary timing, habit architecture, and direct personal mentorship.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div class="p-6 rounded-2xl bg-white border border-charcoal-border/70 shadow-xs">
+          <span class="font-poppins font-semibold text-2xl text-primary/70 block mb-3">01</span>
+          <h3 class="heading-card mb-2">Routine & Baseline Assessment</h3>
+          <p class="text-body !text-xs font-light">Analyzing your existing daily rhythm, hydration habits, sleep timing, and metabolic energy crashes.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white border border-charcoal-border/70 shadow-xs">
+          <span class="font-poppins font-semibold text-2xl text-primary/70 block mb-3">02</span>
+          <h3 class="heading-card mb-2">Personalized Nutrition Plan</h3>
+          <p class="text-body !text-xs font-light">Developing wholesome, nutrient-dense home meals without starvation or skipping regular family dining.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white border border-charcoal-border/70 shadow-xs">
+          <span class="font-poppins font-semibold text-2xl text-primary/70 block mb-3">03</span>
+          <h3 class="heading-card mb-2">Hydration & Daily Habits</h3>
+          <p class="text-body !text-xs font-light">Introducing daily rituals—optimal water intake timing, mindful chewing, and stress moderation.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white border border-charcoal-border/70 shadow-xs">
+          <span class="font-poppins font-semibold text-2xl text-primary/70 block mb-3">04</span>
+          <h3 class="heading-card mb-2">1-on-1 Coach Mentorship</h3>
+          <p class="text-body !text-xs font-light">Direct follow-ups with Coach Aruna Modashia, positive motivation, and accountability for lifelong health.</p>
+        </div>
+      </div>
+
+      <!-- Core Program Pillars -->
+      <div class="pt-10 border-t border-charcoal-border/60">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white/70 border border-charcoal-border/50">
+            <div class="w-8 h-8 rounded-lg bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="scale" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-poppins font-semibold text-charcoal uppercase tracking-wider">Visceral Fat Loss</h4>
+              <p class="text-[11px] font-poppins text-charcoal-muted font-light">Targeting bad fat rather than just temporary water loss.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white/70 border border-charcoal-border/50">
+            <div class="w-8 h-8 rounded-lg bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="heart-pulse" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-poppins font-semibold text-charcoal uppercase tracking-wider">All-Day Vitality</h4>
+              <p class="text-[11px] font-poppins text-charcoal-muted font-light">Relieving chronic body aches and afternoon exhaustion.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white/70 border border-charcoal-border/50">
+            <div class="w-8 h-8 rounded-lg bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-poppins font-semibold text-charcoal uppercase tracking-wider">Skin Clarity</h4>
+              <p class="text-[11px] font-poppins text-charcoal-muted font-light">Internal cellular nutrition that calms persistent acne flares.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white/70 border border-charcoal-border/50">
+            <div class="w-8 h-8 rounded-lg bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-poppins font-semibold text-charcoal uppercase tracking-wider">Lifelong Habits</h4>
+              <p class="text-[11px] font-poppins text-charcoal-muted font-light">Practical principles that prevent weight rebounds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== DOCUMENTED TRANSFORMATION ARCHIVE ==================== -->
+  <section id="archive" class="py-20 lg:py-24 bg-white border-y border-charcoal-border/40">
+    <div class="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+      
+      <!-- Section Introduction -->
+      <div class="max-w-2xl mb-10">
+        <span class="text-label text-terracotta">Verified Client Outcomes</span>
+        <h2 class="heading-section mt-2">Documented Transformation Archive</h2>
+        <p class="text-subtitle mt-3">
+          Inspect individual client journeys across weight loss, healthy gain, and vitality.
+        </p>
+      </div>
+
+      <!-- Functional Category Filters -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-10">
+        <button onclick="filterArchive('all')" class="filter-btn px-4 py-2 rounded-full text-xs font-poppins font-medium border bg-primary text-ivory border-primary">All</button>
+        <button onclick="filterArchive('weight-loss')" class="filter-btn px-4 py-2 rounded-full text-xs font-poppins font-medium border bg-ivory text-charcoal border-charcoal-border/70 hover:bg-black/5">Weight Loss</button>
+        <button onclick="filterArchive('weight-management')" class="filter-btn px-4 py-2 rounded-full text-xs font-poppins font-medium border bg-ivory text-charcoal border-charcoal-border/70 hover:bg-black/5">Healthy Gain</button>
+        <button onclick="filterArchive('lifestyle')" class="filter-btn px-4 py-2 rounded-full text-xs font-poppins font-medium border bg-ivory text-charcoal border-charcoal-border/70 hover:bg-black/5">Skin & Vitality</button>
+      </div>
+
+      <!-- 3-Column Balanced Card Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="archiveGrid">
+        
+        <!-- Card 1 -->
+        <div class="archive-card rounded-2xl bg-white border border-charcoal-border/80 overflow-hidden flex flex-col justify-between shadow-xs hover:border-primary/50 transition-all" data-category="weight-loss">
+          <div class="relative aspect-[4/5] bg-ivory-warm overflow-hidden">
+            <img src="./public/images/transformations/transformation-1-fatloss-9kg-clean.jpg" alt="9kg Fat Loss" class="w-full h-full object-cover object-top">
+            <span class="absolute top-3 left-3 bg-white/95 px-2.5 py-1 rounded-md text-label !text-[10px] text-primary shadow-xs">Weight Loss & Energy</span>
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-ivory border border-charcoal-border/60 text-xs font-poppins font-medium text-charcoal"><strong>-9 kg</strong> (Bad Fat Lost)</span>
+                <span class="px-2.5 py-1 rounded-md bg-ivory border border-charcoal-border/60 text-xs font-poppins font-medium text-charcoal"><strong>-7"</strong> (Waist)</span>
+              </div>
+              <h3 class="heading-card mb-2">9 kg Fat Loss & 7 Inches Reduced</h3>
+              <p class="text-body !text-xs line-clamp-3">Targeted visceral fat loss, relieved chronic bodily aches, and sustained vibrant energy all day long.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-charcoal-border/40 flex items-center justify-between">
+              <span class="text-xs font-poppins font-medium text-primary">Verified Journey</span>
+              <span class="text-label !text-[10px] text-charcoal-subtle">Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="archive-card rounded-2xl bg-white border border-charcoal-border/80 overflow-hidden flex flex-col justify-between shadow-xs hover:border-primary/50 transition-all" data-category="weight-loss">
+          <div class="relative aspect-[4/5] bg-ivory-warm overflow-hidden">
+            <img src="./public/images/transformations/transformation-3-weightloss-20kg.jpg" alt="20kg Weight Loss" class="w-full h-full object-cover object-top">
+            <span class="absolute top-3 left-3 bg-white/95 px-2.5 py-1 rounded-md text-label !text-[10px] text-primary shadow-xs">Weight Loss Milestone</span>
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-ivory border border-charcoal-border/60 text-xs font-poppins font-medium text-charcoal"><strong>78 kg → 58 kg</strong> (-20 kg)</span>
+              </div>
+              <h3 class="heading-card mb-2">20 kg Milestone: 78 kg to 58 kg</h3>
+              <p class="text-body !text-xs line-clamp-3">Achieved an empowering 20 kg reduction without starvation, enjoying clean dietary habits and renewed posture.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-charcoal-border/40 flex items-center justify-between">
+              <span class="text-xs font-poppins font-medium text-primary">Verified Journey</span>
+              <span class="text-label !text-[10px] text-charcoal-subtle">Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="archive-card rounded-2xl bg-white border border-charcoal-border/80 overflow-hidden flex flex-col justify-between shadow-xs hover:border-primary/50 transition-all" data-category="weight-loss">
+          <div class="relative aspect-[4/5] bg-ivory-warm overflow-hidden">
+            <img src="./public/images/transformations/transformation-4-weightloss-14kg.jpg" alt="14kg Weight Loss" class="w-full h-full object-cover object-top">
+            <span class="absolute top-3 left-3 bg-white/95 px-2.5 py-1 rounded-md text-label !text-[10px] text-primary shadow-xs">Waist Contouring</span>
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-ivory border border-charcoal-border/60 text-xs font-poppins font-medium text-charcoal"><strong>94 kg → 80 kg</strong> (-14 kg)</span>
+              </div>
+              <h3 class="heading-card mb-2">14 kg Weight Loss: 94 kg to 80 kg</h3>
+              <p class="text-body !text-xs line-clamp-3">Discipline in portion sizing shed 14 kg of excess visceral weight, reshaping abdominal profile and posture.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-charcoal-border/40 flex items-center justify-between">
+              <span class="text-xs font-poppins font-medium text-primary">Verified Journey</span>
+              <span class="text-label !text-[10px] text-charcoal-subtle">Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="archive-card rounded-2xl bg-white border border-charcoal-border/80 overflow-hidden flex flex-col justify-between shadow-xs hover:border-primary/50 transition-all" data-category="weight-management">
+          <div class="relative aspect-[4/5] bg-ivory-warm overflow-hidden">
+            <img src="./public/images/transformations/transformation-2-recovery-gain.jpg" alt="Recovery to 55kg" class="w-full h-full object-cover object-top">
+            <span class="absolute top-3 left-3 bg-white/95 px-2.5 py-1 rounded-md text-label !text-[10px] text-primary shadow-xs">Recovery & Weight Gain</span>
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-ivory border border-charcoal-border/60 text-xs font-poppins font-medium text-charcoal"><strong>45 kg → 55 kg</strong> (+10 kg)</span>
+              </div>
+              <h3 class="heading-card mb-2">Recovery to Strength: 45 kg to 55 kg</h3>
+              <p class="text-body !text-xs line-clamp-3">From hospital bed weakness to achieving an active, healthy 55 kg physique with balanced cellular nutrition.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-charcoal-border/40 flex items-center justify-between">
+              <span class="text-xs font-poppins font-medium text-primary">Verified Journey</span>
+              <span class="text-label !text-[10px] text-charcoal-subtle">Verified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 (Clean Cropped Face Image) -->
+        <div class="archive-card rounded-2xl bg-white border border-charcoal-border/80 overflow-hidden flex flex-col justify-between shadow-xs hover:border-primary/50 transition-all" data-category="lifestyle">
+          <div class="relative aspect-[4/5] bg-ivory-warm overflow-hidden">
+            <img src="./public/images/transformations/transformation-5-skin-wellness-clean.jpg" alt="Skin Cellular Nutrition" class="w-full h-full object-cover object-center">
+            <span class="absolute top-3 left-3 bg-white/95 px-2.5 py-1 rounded-md text-label !text-[10px] text-primary shadow-xs">Skin & Cellular Health</span>
+          </div>
+          <div class="p-5 sm:p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-ivory border border-charcoal-border/60 text-xs font-poppins font-medium text-charcoal"><strong>Acne Calmed</strong> (Cellular Diet)</span>
+              </div>
+              <h3 class="heading-card mb-2">Cellular Nutrition & Skin Clarity</h3>
+              <p class="text-body !text-xs line-clamp-3">Internal nutritional detox cleared long-term facial blemishes and restored healthy cellular hydration.</p>
+            </div>
+            <div class="pt-4 mt-4 border-t border-charcoal-border/40 flex items-center justify-between">
+              <span class="text-xs font-poppins font-medium text-primary">Verified Journey</span>
+              <span class="text-label !text-[10px] text-charcoal-subtle">Verified</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Transparency Notice -->
+      <div class="mt-12 text-center max-w-xl mx-auto p-4 rounded-xl bg-ivory border border-charcoal-border/60 text-xs text-charcoal-muted leading-relaxed font-light">
+        <strong>Transparency Notice:</strong> Results may vary from person to person based on consistency, metabolic rate, and individual dedication. Garima Wellness Center emphasizes sustainable lifestyle modifications and balanced nutrition.
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section id="testimonials" class="py-20 lg:py-24 bg-ivory">
+    <div class="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <span class="text-label text-terracotta">Client Voices</span>
+        <h2 class="heading-section mt-2">
+          Transformations Grounded in <span class="text-primary font-semibold">Trust & Consistency.</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div class="p-7 sm:p-8 rounded-2xl bg-white border border-charcoal-border/70 shadow-xs flex flex-col justify-between">
+          <p class="font-poppins text-charcoal text-sm sm:text-base leading-relaxed italic mb-6 font-normal">
+            “I lost 9 kg of bad fat and 7 inches off my waist. All my lingering body aches disappeared, and I now stay fully energized from morning until night. Coach Aruna's daily support kept me consistent without any harsh starvation.”
+          </p>
+          <div class="pt-5 border-t border-charcoal-border/40 flex items-center justify-between">
+            <div>
+              <h4 class="font-poppins font-semibold text-charcoal text-sm">Verified Client</h4>
+              <p class="text-xs text-charcoal-subtle font-light">Una, Gir Somnath</p>
+            </div>
+            <span class="px-3 py-1 rounded-md bg-ivory border border-charcoal-border text-xs font-poppins font-medium text-primary">-9kg & -7" Waist</span>
+          </div>
+        </div>
+
+        <div class="p-7 sm:p-8 rounded-2xl bg-white border border-charcoal-border/70 shadow-xs flex flex-col justify-between">
+          <p class="font-poppins text-charcoal text-sm sm:text-base leading-relaxed italic mb-6 font-normal">
+            “Stepping down from 78 kg to 58 kg transformed my life. I learned how to eat right without cutting out real family meals. Coach Aruna made me feel confident that a healthy body is truly sustainable.”
+          </p>
+          <div class="pt-5 border-t border-charcoal-border/40 flex items-center justify-between">
+            <div>
+              <h4 class="font-poppins font-semibold text-charcoal text-sm">Verified Member</h4>
+              <p class="text-xs text-charcoal-subtle font-light">Online Coaching</p>
+            </div>
+            <span class="px-3 py-1 rounded-md bg-ivory border border-charcoal-border text-xs font-poppins font-medium text-primary">78kg → 58kg (-20kg)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FAQ SECTION ==================== -->
+  <section id="faq" class="py-20 lg:py-24 bg-white border-y border-charcoal-border/40">
+    <div class="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12">
+        <span class="text-label text-terracotta">Frequently Asked Questions</span>
+        <h2 class="heading-section mt-2">
+          Clear Answers for Your <span class="text-primary font-semibold">Wellness Journey.</span>
+        </h2>
+      </div>
+
+      <div class="max-w-3xl space-y-3.5">
+        <details class="group rounded-xl border border-charcoal-border/70 bg-ivory/50 p-5 transition-colors open:bg-white" open>
+          <summary class="flex cursor-pointer items-center justify-between font-poppins text-sm sm:text-base font-medium text-charcoal list-none">
+            <span>Do I have to follow restrictive starvation or give up family meals?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-charcoal-subtle transition-transform group-open:rotate-180 group-open:text-primary"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light border-t border-charcoal-border/30 pt-3">
+            No. Coach Aruna's philosophy strictly rejects starvation diets. You will learn proper portion awareness, nutrient timing, and balanced home-cooked meals that nourish your body sustainably without disconnecting you from family dining.
+          </p>
+        </details>
+
+        <details class="group rounded-xl border border-charcoal-border/70 bg-ivory/50 p-5 transition-colors open:bg-white">
+          <summary class="flex cursor-pointer items-center justify-between font-poppins text-sm sm:text-base font-medium text-charcoal list-none">
+            <span>Is online coaching available if I live outside Una, Gujarat?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-charcoal-subtle transition-transform group-open:rotate-180 group-open:text-primary"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light border-t border-charcoal-border/30 pt-3">
+            Yes, absolutely. Garima Wellness Center offers dedicated Online Health Coaching. Coach Aruna guides clients remotely via scheduled phone calls, WhatsApp check-ins, and digital progress tracking.
+          </p>
+        </details>
+
+        <details class="group rounded-xl border border-charcoal-border/70 bg-ivory/50 p-5 transition-colors open:bg-white">
+          <summary class="flex cursor-pointer items-center justify-between font-poppins text-sm sm:text-base font-medium text-charcoal list-none">
+            <span>How is weight management personalized for each individual?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-charcoal-subtle transition-transform group-open:rotate-180 group-open:text-primary"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light border-t border-charcoal-border/30 pt-3">
+            Every body type, metabolic rate, work routine, and health history is unique. We evaluate your daily activity, water intake, sleep rhythm, and specific goals—whether targeting stubborn visceral belly fat or relieving joint fatigue.
+          </p>
+        </details>
+
+        <details class="group rounded-xl border border-charcoal-border/70 bg-ivory/50 p-5 transition-colors open:bg-white">
+          <summary class="flex cursor-pointer items-center justify-between font-poppins text-sm sm:text-base font-medium text-charcoal list-none">
+            <span>Do you also help with healthy weight gain or post-recovery strengthening?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-charcoal-subtle transition-transform group-open:rotate-180 group-open:text-primary"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light border-t border-charcoal-border/30 pt-3">
+            Yes. Wellness is not just about losing weight; it is equally about rebuilding undernourished bodies. Our verified client transformations include rebuilding from post-hospital weakness (45 kg) to a healthy, energized 55 kg.
+          </p>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT SECTION (BALANCED 2-COLUMN) ==================== -->
+  <section id="contact" class="py-20 lg:py-24 bg-ivory">
+    <div class="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        
+        <!-- Left Column: Introduction & Primary WhatsApp CTA -->
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-label text-terracotta">Get In Touch</span>
+          <h2 class="heading-section">
+            Begin Your Personalized <span class="text-primary font-semibold">Wellness Journey.</span>
+          </h2>
+          <p class="text-subtitle font-light max-w-lg">
+            At Garima Wellness Center, every transformation begins with an open conversation. Connect with Coach Aruna Modashia to understand how personalized nutrition and sustainable daily habits can transform your health.
+          </p>
+
+          <div class="pt-2">
+            <a href="https://wa.me/919913662102?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20wellness%20programs." target="_blank" rel="noopener noreferrer" class="btn-primary !py-3.5 !px-7 text-xs font-semibold uppercase tracking-wider group">
+              <i data-lucide="message-circle" class="w-4 h-4 mr-2 text-[#25D366]"></i>
+              <span>Chat Directly on WhatsApp</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"></i>
+            </a>
+          </div>
+
+          <div class="p-4 rounded-xl bg-white border border-charcoal-border/70 max-w-lg text-xs font-poppins text-charcoal-muted leading-relaxed font-light">
+            <strong class="font-semibold text-charcoal">Coach Aruna Modashia:</strong> “Health is true wealth. Our mission is to ensure genuine nutritional understanding reaches every individual and family.”
+          </div>
+        </div>
+
+        <!-- Right Column: Clean Organized Contact Card -->
+        <div class="lg:col-span-6">
+          <div class="p-7 sm:p-8 rounded-2xl bg-white border border-charcoal-border/80 shadow-xs space-y-6">
+            <h3 class="heading-card">Contact & Center Information</h3>
+
+            <div class="space-y-4 text-xs font-poppins text-charcoal-muted">
+              <div class="flex items-start gap-3.5 pb-4 border-b border-charcoal-border/40">
+                <div class="w-9 h-9 rounded-xl bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="phone" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="text-label !text-[10px] text-charcoal-subtle block">Direct Phone & WhatsApp</span>
+                  <a href="tel:+919913662102" class="text-base font-poppins font-semibold text-charcoal hover:text-primary transition-colors block mt-0.5">+91 99136 62102</a>
+                  <span class="text-[11px] text-charcoal-subtle font-light">Mon–Sat: 7:00 AM – 8:00 PM</span>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5 pb-4 border-b border-charcoal-border/40">
+                <div class="w-9 h-9 rounded-xl bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i>
+                </div>
+                <div class="space-y-0.5">
+                  <span class="text-label !text-[10px] text-charcoal-subtle block">Center Address (Una)</span>
+                  <p class="font-semibold text-charcoal text-xs sm:text-sm">Garima Wellness Center</p>
+                  <p class="font-light">Vidhyanagar Delwada Road, Opposite Rohan Pan</p>
+                  <p class="font-light">Una, Dist. Gir Somnath, Gujarat - 362560</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Inquiry Form -->
+            <div class="pt-2">
+              <span class="text-label !text-[10px] text-charcoal-subtle block mb-3">Quick Consultation Request</span>
+              <form onsubmit="handleContactSubmit(event)" class="space-y-3">
+                <input id="userName" type="text" required placeholder="Your Full Name *" class="w-full px-3.5 py-2.5 rounded-xl border border-charcoal-border text-xs font-poppins outline-none focus:border-primary bg-ivory/50">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <input id="userPhone" type="tel" required placeholder="Mobile / WhatsApp *" class="w-full px-3.5 py-2.5 rounded-xl border border-charcoal-border text-xs font-poppins outline-none focus:border-primary bg-ivory/50">
+                  <select id="userGoal" class="w-full px-3.5 py-2.5 rounded-xl border border-charcoal-border text-xs font-poppins outline-none focus:border-primary bg-ivory/50">
+                    <option value="Weight & Visceral Fat Loss">Weight & Fat Loss</option>
+                    <option value="Healthy Weight Gain & Recovery">Healthy Weight Gain</option>
+                    <option value="Daily Stamina & Energy">Daily Stamina & Energy</option>
+                    <option value="Cellular Nutrition & Skin Clarity">Skin & Cellular Health</option>
+                  </select>
+                </div>
+                <button type="submit" class="w-full btn-primary !py-3 text-xs uppercase tracking-wider justify-center">
+                  <span>Send via WhatsApp</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1.5"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER (OFFICIAL LOGO) ==================== -->
+  <footer class="bg-primary-dark text-ivory py-16 border-t border-white/10">
+    <div class="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-2.5 select-none">
+            <img src="./public/images/brand/garima-logo-transparent.png" alt="Garima Logo" class="h-9 w-auto object-contain">
+            <div class="flex flex-col">
+              <span class="font-poppins font-semibold text-lg tracking-[0.14em] text-ivory uppercase leading-none">GARIMA</span>
+              <span class="text-[8.5px] tracking-[0.22em] uppercase font-poppins font-medium text-sage-light mt-0.5">WELLNESS CENTER</span>
+            </div>
+          </div>
+          <p class="text-sage-light text-xs font-poppins font-light leading-relaxed max-w-sm">
+            Dedicated to inspiring vibrant, healthy living through personalized nutrition, sustainable lifestyle habits, and direct 1-on-1 mentorship.
+          </p>
+          <div class="pt-1">
+            <span class="text-label !text-[10px] text-terracotta-light block">Certified Wellness Coach</span>
+            <p class="text-xs sm:text-sm font-poppins font-medium text-white mt-0.5">Aruna Modashia (Wellness Coach & Mentor)</p>
+          </div>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-label !text-[11px] text-terracotta-light">Navigation</h4>
+          <ul class="space-y-1.5 text-xs font-poppins text-sage-light">
+            <li><a href="#hero" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="#approach" class="hover:text-white transition-colors">Our Approach</a></li>
+            <li><a href="#archive" class="hover:text-white transition-colors">Results</a></li>
+            <li><a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-3 text-xs font-poppins text-sage-light font-light">
+          <h4 class="text-label !text-[11px] text-terracotta-light">Center & Contact</h4>
+          <p>Vidhyanagar Delwada Road, Opp. Rohan Pan, Una, Gir Somnath - 362560</p>
+          <p>Direct Line / WhatsApp: +91 99136 62102</p>
+          <p>Hours: Mon–Sat: 7:00 AM – 8:00 PM</p>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] font-poppins text-sage-light/70 gap-3">
+        <p>© 2026 Garima Wellness Center. All rights reserved.</p>
+        <p>Una, Gir Somnath, Gujarat • Direct Line: +91 99136 62102</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+  <aside aria-label="Floating WhatsApp support contact" class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
+    <a href="https://wa.me/919913662102?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20wellness%20programs." target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" class="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20BA5A] text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 focus:outline-none">
+      <svg viewBox="0 0 32 32" class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 2C8.268 2 2 8.268 2 16c0 2.668.748 5.163 2.051 7.29L2 30l6.903-2.007A13.916 13.916 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.56a11.51 11.51 0 0 1-5.875-1.602l-.422-.25-4.364 1.27 1.272-4.254-.275-.438A11.536 11.536 0 0 1 4.44 16c0-6.374 5.186-11.56 11.56-11.56 6.374 0 11.56 5.186 11.56 11.56 0 6.374-5.186 11.56-11.56 11.56zm6.336-8.663c-.347-.174-2.053-1.013-2.372-1.129-.319-.116-.551-.174-.783.174-.232.348-.899 1.129-1.101 1.361-.203.232-.406.261-.754.087-.348-.174-1.469-.541-2.798-1.727-1.034-.922-1.732-2.062-1.935-2.41-.203-.348-.022-.536.152-.709.157-.156.348-.406.522-.609.174-.203.232-.348.348-.58.116-.232.058-.435-.029-.609-.087-.174-.783-1.884-1.072-2.58-.282-.676-.569-.584-.783-.595l-.667-.012c-.232 0-.609.087-.928.435-.319.348-1.218 1.189-1.218 2.899 0 1.71 1.246 3.363 1.42 3.595.174.232 2.453 3.746 5.942 5.253.83.359 1.478.573 1.984.734.834.265 1.593.227 2.193.138.669-.1 2.053-.839 2.343-1.649.29-.812.29-1.508.203-1.65-.087-.142-.319-.232-.667-.406z" />
+      </svg>
+    </a>
+  </aside>
+
+  <!-- Interactive Scripts -->
+  <script>
+    lucide.createIcons();
+
+    // Language Toggle
+    let isGu = false;
+    function toggleLanguage() {
+      isGu = !isGu;
+      document.getElementById('langLabel').innerText = isGu ? 'English' : 'ગુજરાતી';
+      document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', isGu));
+      document.querySelectorAll('.lang-gu').forEach(el => el.classList.toggle('hidden', !isGu));
+    }
+
+    // Category Filter for Archive
+    function filterArchive(cat) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.className = "filter-btn px-4 py-2 rounded-full text-xs font-poppins font-medium border bg-ivory text-charcoal border-charcoal-border/70 hover:bg-black/5";
+      });
+      event.target.className = "filter-btn px-4 py-2 rounded-full text-xs font-poppins font-medium border bg-primary text-ivory border-primary";
+
+      document.querySelectorAll('.archive-card').forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Form Submit
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('userName').value;
+      const phone = document.getElementById('userPhone').value;
+      const goal = document.getElementById('userGoal').value;
+      const text = `Hello Coach Aruna,%0A%0AMy Name: ${name}%0APhone: ${phone}%0APrimary Goal: ${goal}%0A%0AHello, I would like to know more about your wellness programs.`;
+      window.open(`https://wa.me/919913662102?text=${text}`, '_blank');
+    }
+  </script>
+</body>
+</html>
