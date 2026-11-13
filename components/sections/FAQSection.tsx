@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { faqs } from "@/data/faq";
 import { ChevronDown } from "lucide-react";
+import { ShapeZenDonut } from "@/components/ui/ShapesGallery";
 
 export const FAQSection: React.FC = () => {
   const { isGujarati } = useLanguage();
@@ -14,8 +15,13 @@ export const FAQSection: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 lg:py-24 bg-white border-y border-charcoal-border/40">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+    <section id="faq" className="py-20 lg:py-24 bg-white border-y border-charcoal-border/40 relative overflow-hidden">
+      {/* Shapes Gallery Background Art — Shape 22 Zen Donut */}
+      <div className="absolute top-1/2 -right-16 -translate-y-1/2 text-primary pointer-events-none hidden lg:block" aria-hidden="true">
+        <ShapeZenDonut className="w-56 h-56 text-primary" opacity={0.05} />
+      </div>
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header with Global Typography System */}
         <div className="max-w-2xl mb-12 lg:mb-16">
@@ -49,25 +55,28 @@ export const FAQSection: React.FC = () => {
             return (
               <div
                 key={faq.id}
-                className="rounded-xl border border-charcoal-border/70 overflow-hidden bg-ivory/50 transition-colors"
+                className="rounded-2xl border border-charcoal-border/80 bg-ivory-warm overflow-hidden transition-all duration-200"
               >
                 <button
                   type="button"
                   onClick={() => toggleFAQ(idx)}
+                  className="w-full py-5 px-6 min-h-[56px] flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary cursor-pointer"
                   aria-expanded={isOpen}
-                  className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-poppins text-sm sm:text-base font-medium text-charcoal hover:text-primary transition-colors focus:outline-none focus:ring-1 focus:ring-primary"
                 >
-                  <span>{isGujarati ? faq.gujaratiQuestion : faq.question}</span>
+                  <span className="font-sans font-medium text-charcoal text-[17px] sm:text-[18px] pr-4">
+                    {isGujarati ? faq.gujaratiQuestion : faq.question}
+                  </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-charcoal-subtle transition-transform duration-200 shrink-0 ${
-                      isOpen ? "rotate-180 text-primary" : ""
+                    className={`w-5 h-5 text-primary shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-primary" : "text-charcoal-muted"
                     }`}
                   />
                 </button>
-
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-charcoal-muted leading-relaxed font-light border-t border-charcoal-border/30 animate-in fade-in duration-150">
-                    {isGujarati ? faq.gujaratiAnswer : faq.answer}
+                  <div className="px-6 pb-6 pt-1 border-t border-charcoal-border/40">
+                    <p className="font-sans text-[15px] sm:text-[16px] text-charcoal-muted leading-relaxed font-normal">
+                      {isGujarati ? faq.gujaratiAnswer : faq.answer}
+                    </p>
                   </div>
                 )}
               </div>

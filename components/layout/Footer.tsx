@@ -5,6 +5,7 @@ import { siteConfig } from "@/data/siteData";
 import { Logo } from "@/components/brand/Logo";
 import { useLanguage } from "@/context/LanguageContext";
 import { Phone, MessageCircle, MapPin, ArrowUp } from "lucide-react";
+import { ShapeOrganicBlossom } from "@/components/ui/ShapesGallery";
 
 export const Footer: React.FC = () => {
   const { isGujarati } = useLanguage();
@@ -24,7 +25,12 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-primary-dark text-ivory py-16 border-t border-white/10 relative overflow-hidden">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
+      {/* Shapes Gallery Background Art — Shape 47 Organic Blossom */}
+      <div className="absolute -bottom-12 -right-8 text-white pointer-events-none select-none" aria-hidden="true">
+        <ShapeOrganicBlossom className="w-56 h-56 text-white" opacity={0.03} />
+      </div>
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main 3-Column Footer Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
@@ -33,34 +39,34 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 space-y-4">
             <Logo variant="dark" size="sm" />
             
-            <p className="text-sage-light text-xs sm:text-sm max-w-sm font-poppins font-light leading-relaxed">
+            <p className="text-sage-light text-[14px] sm:text-[15px] max-w-sm font-sans leading-relaxed">
               {isGujarati
                 ? "ગરિમા વેલનેસ સેન્ટર – યોગ્ય પોષણ, સ્વસ્થ જીવનશૈલી અને સકારાત્મક માર્ગદર્શન દ્વારા કાયમી સુખાકારી લાવવા માટે સમર્પિત."
                 : "Dedicated to inspiring vibrant, healthy living through personalized nutrition, sustainable lifestyle habits, and direct 1-on-1 mentorship."}
             </p>
 
             <div className="pt-1">
-              <span className="text-label !text-[10px] text-terracotta-light block">
+              <span className="text-label !text-[11px] text-terracotta-light block">
                 Certified Wellness Coach
               </span>
-              <p className="text-xs sm:text-sm font-poppins font-medium text-white mt-0.5">
+              <p className="text-[15px] font-sans font-semibold text-white mt-0.5">
                 {siteConfig.founder.name} ({siteConfig.founder.title})
               </p>
             </div>
           </div>
 
-          {/* Column 2: Essential Navigation Links */}
+          {/* Column 2: Navigation Links */}
           <div className="md:col-span-3 space-y-3">
-            <h4 className="text-label !text-[11px] text-terracotta-light">
-              {isGujarati ? "ઝડપી નેવિગેશન" : "Navigation"}
+            <h4 className="text-[13px] font-sans font-semibold uppercase tracking-wider text-ivory/90 mb-4">
+              {isGujarati ? "ઝડપી લિંક્સ" : "Quick Navigation"}
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {siteConfig.navLinks.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-xs font-poppins text-sage-light hover:text-white transition-colors"
+                    className="text-[14px] sm:text-[15px] font-sans text-sage-light hover:text-white transition-colors py-0.5 inline-block"
                   >
                     {isGujarati ? link.gujaratiName : link.name}
                   </a>
@@ -69,67 +75,57 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 3: Contact & Address */}
-          <div className="md:col-span-4 space-y-3">
-            <h4 className="text-label !text-[11px] text-terracotta-light">
-              {isGujarati ? "કેન્દ્ર સરનામું અને સંપર્ક" : "Center & Contact"}
+          {/* Column 3: Direct Contact Information */}
+          <div className="md:col-span-4 space-y-3.5">
+            <h4 className="text-[13px] font-sans font-semibold uppercase tracking-wider text-ivory/90 mb-4">
+              {isGujarati ? "સંપર્ક માહિતી" : "Contact Information"}
             </h4>
 
-            <div className="space-y-2.5 text-xs font-poppins text-sage-light font-light">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-terracotta-light shrink-0 mt-0.5" />
-                <span>
-                  {siteConfig.contact.address.line1}, {siteConfig.contact.address.landmark},{" "}
-                  {siteConfig.contact.address.city}, Dist. {siteConfig.contact.address.district} - {siteConfig.contact.address.pincode}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-terracotta-light shrink-0" />
-                <a
-                  href={`tel:${siteConfig.contact.phone}`}
-                  className="hover:text-white transition-colors"
-                >
-                  {siteConfig.contact.displayPhone}
-                </a>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0" />
-                <a
-                  href={`https://wa.me/${siteConfig.contact.whatsappNumber}?text=${encodeURIComponent(
-                    "Hello, I would like to know more about your wellness programs."
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-[#25D366] transition-colors font-medium"
-                >
-                  WhatsApp: {siteConfig.contact.displayPhone}
-                </a>
-              </div>
+            <div className="flex items-center gap-2.5 text-[14px] sm:text-[15px] text-sage-light font-sans">
+              <Phone className="w-4.5 h-4.5 text-terracotta-light shrink-0" />
+              <a href={`tel:${siteConfig.contact.phone}`} className="hover:text-white transition-colors">
+                {siteConfig.contact.displayPhone}
+              </a>
             </div>
 
-            <div className="pt-2">
-              <button
-                onClick={scrollToTop}
-                className="inline-flex items-center gap-1.5 text-[11px] font-poppins text-sage-light hover:text-white transition-colors border border-white/10 px-3 py-1 rounded-full"
+            <div className="flex items-center gap-2.5 text-[14px] sm:text-[15px] text-sage-light font-sans">
+              <MessageCircle className="w-4.5 h-4.5 text-sage-light shrink-0" />
+              <a
+                href={`https://wa.me/${siteConfig.contact.whatsappNumber}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors"
               >
-                <span>Back to top</span>
-                <ArrowUp className="w-3 h-3" />
-              </button>
+                +91 97268 76369 (WhatsApp)
+              </a>
+            </div>
+
+            <div className="flex items-start gap-2.5 text-[14px] sm:text-[15px] text-sage-light font-sans">
+              <MapPin className="w-4.5 h-4.5 text-terracotta-light shrink-0 mt-0.5" />
+              <span className="leading-relaxed">
+                {isGujarati
+                  ? siteConfig.contact.address.fullGujarati
+                  : `${siteConfig.contact.address.line1}, ${siteConfig.contact.address.city}, Gujarat`}
+              </span>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] font-poppins text-sage-light/70 gap-3">
-          <p>
-            © {new Date().getFullYear()} Garima Wellness Center. All rights reserved.
+        {/* Bottom Disclaimer & Copyright */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+          <p className="text-xs font-sans text-sage-light/75">
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved. Results may vary from person to person.
           </p>
-          <p>
-            Una, Gir Somnath, Gujarat • Direct Line: +91 99136 62102
-          </p>
+
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-2 text-[14px] font-sans text-sage-light hover:text-white transition-colors cursor-pointer"
+            aria-label="Back to top"
+          >
+            <span>{isGujarati ? "ટોચ પર પાછા જાઓ" : "Back to top"}</span>
+            <ArrowUp className="w-4 h-4" />
+          </button>
         </div>
 
       </div>

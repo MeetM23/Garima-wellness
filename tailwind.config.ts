@@ -41,8 +41,17 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-poppins)", "Poppins", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-        poppins: ["var(--font-poppins)", "Poppins", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sans: [
+          "var(--font-inter)",
+          "var(--font-gujarati)",
+          "Noto Sans Gujarati UI",
+          "Noto Sans Gujarati",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "sans-serif",
+        ],
+        inter: ["var(--font-inter)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        gujarati: ["var(--font-gujarati)", "Noto Sans Gujarati UI", "Noto Sans Gujarati", "sans-serif"],
       },
       borderRadius: {
         'xl': '0.875rem',
@@ -50,9 +59,19 @@ const config: Config = {
         '3xl': '1.75rem',
       },
       boxShadow: {
+        '2xs': '0 1px 2px 0 rgba(0, 0, 0, 0.03)',
         'xs': '0 1px 2px 0 rgba(0, 0, 0, 0.04)',
         'soft': '0 4px 20px -2px rgba(35, 75, 58, 0.05)',
         'lifted': '0 12px 32px -4px rgba(35, 75, 58, 0.08)',
+      },
+      animation: {
+        'marquee': 'marquee 45s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translate3d(0, 0, 0)' },
+          '100%': { transform: 'translate3d(-50%, 0, 0)' },
+        },
       },
     },
   },

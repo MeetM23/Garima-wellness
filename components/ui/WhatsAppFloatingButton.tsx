@@ -17,7 +17,7 @@ export const WhatsAppFloatingButton: React.FC = () => {
     >
       {/* Subtle Tooltip on Hover */}
       <div
-        className={`hidden sm:flex items-center px-3 py-1.5 rounded-full bg-charcoal text-ivory text-xs font-poppins font-medium tracking-wide shadow-md transition-all duration-200 pointer-events-none select-none ${
+        className={`hidden sm:flex items-center px-3.5 py-2 rounded-full bg-charcoal text-ivory text-xs font-sans font-medium tracking-wide shadow-md transition-all duration-200 pointer-events-none select-none ${
           showTooltip
             ? "opacity-100 translate-x-0"
             : "opacity-0 translate-x-2"

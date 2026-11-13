@@ -54,7 +54,7 @@ export const Navbar: React.FC = () => {
           : "bg-transparent py-4 md:py-5"
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Official Supplied Brand Logo */}
@@ -67,8 +67,8 @@ export const Navbar: React.FC = () => {
             <Logo size="sm" variant="default" />
           </a>
 
-          {/* Clean Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-7">
+          {/* Clean Desktop Navigation (15px, font-medium) */}
+          <nav className="hidden lg:flex items-center gap-8">
             {siteConfig.navLinks.map((link) => {
               const linkId = link.href.replace("#", "");
               const isActive = activeSection === linkId;
@@ -78,7 +78,7 @@ export const Navbar: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-[14px] font-poppins transition-colors relative py-1 ${
+                  className={`text-[15px] font-sans transition-colors relative py-1.5 ${
                     isActive
                       ? "text-primary font-semibold"
                       : "text-charcoal-muted hover:text-charcoal font-medium"
@@ -93,12 +93,12 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Header Action: Language Pill & Prominent Consultation CTA */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Header Action: Language Pill & Prominent Consultation CTA (Desktop lg+) */}
+          <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={toggleLanguage}
               aria-label="Toggle Gujarati and English language"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-charcoal-border/80 text-xs font-poppins font-medium text-charcoal hover:border-primary hover:text-primary transition-colors bg-white"
+              className="flex items-center gap-1.5 px-3.5 py-2 min-h-[44px] rounded-full border border-charcoal-border/80 text-xs font-sans font-medium text-charcoal hover:border-primary hover:text-primary transition-colors bg-white shadow-2xs"
             >
               <Globe className="w-3.5 h-3.5 text-sage-dark" />
               <span>{isGujarati ? "English" : "ગુજરાતી"}</span>
@@ -107,10 +107,10 @@ export const Navbar: React.FC = () => {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, "#contact")}
-              className="btn-primary !py-2.5 !px-5 text-xs font-semibold uppercase tracking-wider"
+              className="btn-primary !py-2.5 !px-5 text-sm font-semibold uppercase tracking-wider"
             >
               <span>{isGujarati ? "કન્સલ્ટેશન બુક કરો" : "Book Consultation"}</span>
-              <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+              <ArrowUpRight className="w-4 h-4 ml-1" />
             </a>
           </div>
 
@@ -119,17 +119,17 @@ export const Navbar: React.FC = () => {
             <button
               onClick={toggleLanguage}
               aria-label="Toggle Language"
-              className="px-2.5 py-1 text-xs font-poppins font-medium rounded-full border border-charcoal-border bg-white text-charcoal"
+              className="px-3 py-1.5 min-h-[40px] text-xs font-sans font-semibold rounded-full border border-charcoal-border bg-white text-charcoal shadow-2xs"
             >
               {isGujarati ? "EN" : "ગુજ"}
             </button>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-charcoal hover:bg-black/5 transition-colors focus:outline-none"
+              className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg text-charcoal hover:bg-black/5 transition-colors focus:outline-none"
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
 
@@ -139,23 +139,23 @@ export const Navbar: React.FC = () => {
       {/* Professional Mobile Menu Drawer */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-ivory/98 backdrop-blur-xl border-b border-charcoal-border/60 px-6 pt-3 pb-6 shadow-xl animate-in fade-in slide-in-from-top-2 duration-200">
-          <div className="flex flex-col space-y-3">
+          <div className="flex flex-col space-y-2">
             {siteConfig.navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-poppins font-medium text-charcoal hover:text-primary transition-colors py-2 border-b border-charcoal-border/30"
+                className="text-[16px] font-sans font-medium text-charcoal hover:text-primary transition-colors py-2.5 border-b border-charcoal-border/30"
               >
                 {isGujarati ? link.gujaratiName : link.name}
               </a>
             ))}
 
-            <div className="pt-2">
+            <div className="pt-3">
               <a
                 href="#contact"
                 onClick={(e) => handleNavClick(e, "#contact")}
-                className="w-full btn-primary !py-3 text-xs uppercase tracking-wider justify-center"
+                className="w-full btn-primary !py-3.5 text-sm uppercase tracking-wider justify-center"
               >
                 <span>{isGujarati ? "કન્સલ્ટેશન બુક કરો" : "Book a Consultation"}</span>
                 <ArrowUpRight className="w-4 h-4 ml-1.5" />

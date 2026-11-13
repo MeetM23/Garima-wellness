@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +8,6 @@
   --color-ivory: #F8F7F1;
   --color-terracotta: #C68C72;
   --color-charcoal: #252A26;
-  --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 html {
@@ -21,10 +18,19 @@ html {
 body {
   background-color: var(--color-ivory);
   color: var(--color-charcoal);
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.65;
+  }
 }
 
 /* Custom Selection Highlight */
@@ -34,81 +40,93 @@ body {
 }
 
 /* ========================================================
-   GLOBAL TYPOGRAPHY SYSTEM (Poppins Based)
+   GLOBAL TYPOGRAPHY SYSTEM (Inter & Noto Sans Gujarati)
+   Optimized for 40+ Audience Legibility & Gujarati Matras
    ======================================================== */
 
 .heading-hero {
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', sans-serif;
   font-weight: 600;
-  font-size: clamp(34px, 5.5vw, 56px);
-  line-height: 1.15;
+  font-size: clamp(34px, 4.5vw, 46px);
+  line-height: 1.2;
   letter-spacing: -0.02em;
   color: #252A26;
 }
 
 .heading-section {
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', sans-serif;
   font-weight: 600;
-  font-size: clamp(28px, 4vw, 40px);
-  line-height: 1.22;
+  font-size: clamp(26px, 3.2vw, 32px);
+  line-height: 1.3;
   letter-spacing: -0.015em;
   color: #252A26;
 }
 
 .heading-subsection {
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', sans-serif;
   font-weight: 600;
-  font-size: clamp(20px, 2.5vw, 24px);
-  line-height: 1.3;
+  font-size: clamp(20px, 2.4vw, 24px);
+  line-height: 1.35;
   letter-spacing: -0.01em;
   color: #252A26;
 }
 
 .heading-card {
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', sans-serif;
   font-weight: 600;
-  font-size: clamp(17px, 2vw, 19px);
-  line-height: 1.35;
+  font-size: clamp(17px, 1.8vw, 19px);
+  line-height: 1.38;
   letter-spacing: -0.005em;
   color: #252A26;
 }
 
 .text-subtitle {
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', sans-serif;
   font-weight: 400;
-  font-size: clamp(14px, 1.8vw, 16px);
-  line-height: 1.7;
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height: 1.68;
   color: #5A615B;
 }
 
 .text-body {
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', sans-serif;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.72;
   color: #5A615B;
 }
 
+@media (max-width: 640px) {
+  .text-body {
+    font-size: 16px;
+    line-height: 1.68;
+  }
+}
+
 .text-label {
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', sans-serif;
   font-weight: 500;
   font-size: 12px;
-  line-height: 1.4;
-  letter-spacing: 0.08em;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-/* Consistent Buttons */
+/* ========================================================
+   BUTTONS (Generous touch target, 15-16px text)
+   ======================================================== */
+
 .btn-primary {
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', sans-serif;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: 0.02em;
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 13px 26px;
+  min-height: 48px;
   border-radius: 9999px;
   background-color: #234B3A;
   color: #F8F7F1;
@@ -118,19 +136,20 @@ body {
 
 .btn-primary:hover {
   background-color: #2F5F4A;
-  box-shadow: 0 4px 12px rgba(35, 75, 58, 0.18);
+  box-shadow: 0 4px 14px rgba(35, 75, 58, 0.18);
 }
 
 .btn-secondary {
-  font-family: var(--font-poppins);
+  font-family: var(--font-inter), var(--font-gujarati), 'Inter', 'Noto Sans Gujarati UI', 'Noto Sans Gujarati', sans-serif;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: 0.02em;
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 12px 24px;
+  min-height: 48px;
   border-radius: 9999px;
   background-color: #FFFFFF;
   color: #252A26;
@@ -143,9 +162,69 @@ body {
   border-color: #A7B9A1;
 }
 
+/* ========================================================
+   CONTINUOUS HORIZONTAL MARQUEE TRACK
+   ======================================================== */
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
+}
+
+@media (max-width: 640px) {
+  .marquee-wrapper {
+    mask-image: linear-gradient(to right, transparent, black 1.5%, black 98.5%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 1.5%, black 98.5%, transparent);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee 45s linear infinite;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.marquee-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Marquee pause on desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Accessible reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+    overflow-x: auto;
+    width: 100%;
+    transform: none !important;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {

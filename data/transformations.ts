@@ -6,6 +6,24 @@ export interface TransformationItem {
   categoryLabel: string;
   gujaratiCategoryLabel: string;
   image: string;
+  beforeImage: string;
+  afterImage: string;
+  startingMeasurement?: {
+    labelEn: string;
+    labelGu: string;
+    valueEn: string;
+    valueGu: string;
+  };
+  achievedMeasurement?: {
+    labelEn: string;
+    labelGu: string;
+    valueEn: string;
+    valueGu: string;
+  };
+  highlightResult: {
+    en: string;
+    gu: string;
+  };
   featured: boolean;
   verifiedDuration?: string;
   stats: {
@@ -31,6 +49,24 @@ export const transformations: TransformationItem[] = [
     categoryLabel: "Weight Loss & Energy",
     gujaratiCategoryLabel: "વજન ઘટાડો અને ઊર્જા",
     image: "/images/transformations/transformation-1-fatloss-9kg-clean.jpg",
+    beforeImage: "/images/transformations/split/transformation-1-fatloss-9kg-clean-before.jpg",
+    afterImage: "/images/transformations/split/transformation-1-fatloss-9kg-clean-after.jpg",
+    startingMeasurement: {
+      labelEn: "Starting Condition",
+      labelGu: "શરૂઆતની સ્થિતિ",
+      valueEn: "Excess Visceral Fat",
+      valueGu: "વધારાની ચરબી"
+    },
+    achievedMeasurement: {
+      labelEn: "Achieved Result",
+      labelGu: "મેળવેલ પરિણામ",
+      valueEn: "-9 kg & -7 Inches",
+      valueGu: "-૯ કિલો અને -૭ ઇંચ"
+    },
+    highlightResult: {
+      en: "-9 kg & 7\" Lost",
+      gu: "-૯ કિલો અને ૭ ઇંચ"
+    },
     featured: true,
     verifiedDuration: "Guided Personal Program",
     stats: [
@@ -56,6 +92,24 @@ export const transformations: TransformationItem[] = [
     categoryLabel: "Weight Loss Journeys",
     gujaratiCategoryLabel: "વજન ઘટાડાની સફર",
     image: "/images/transformations/transformation-3-weightloss-20kg.jpg",
+    beforeImage: "/images/transformations/split/transformation-3-weightloss-20kg-before.jpg",
+    afterImage: "/images/transformations/split/transformation-3-weightloss-20kg-after.jpg",
+    startingMeasurement: {
+      labelEn: "Starting Weight",
+      labelGu: "શરૂઆતનું વજન",
+      valueEn: "78 kg",
+      valueGu: "૭૮ કિલો"
+    },
+    achievedMeasurement: {
+      labelEn: "Achieved Weight",
+      labelGu: "મેળવેલ વજન",
+      valueEn: "58 kg",
+      valueGu: "૫૮ કિલો"
+    },
+    highlightResult: {
+      en: "-20 kg Milestone",
+      gu: "-૨૦ કિલો સફળતા"
+    },
     featured: true,
     verifiedDuration: "Structured Nutrition Journey",
     stats: [
@@ -81,6 +135,24 @@ export const transformations: TransformationItem[] = [
     categoryLabel: "Weight Loss Journeys",
     gujaratiCategoryLabel: "વજન ઘટાડાની સફર",
     image: "/images/transformations/transformation-4-weightloss-14kg.jpg",
+    beforeImage: "/images/transformations/split/transformation-4-weightloss-14kg-before.jpg",
+    afterImage: "/images/transformations/split/transformation-4-weightloss-14kg-after.jpg",
+    startingMeasurement: {
+      labelEn: "Starting Weight",
+      labelGu: "શરૂઆતનું વજન",
+      valueEn: "94 kg",
+      valueGu: "૯૪ કિલો"
+    },
+    achievedMeasurement: {
+      labelEn: "Achieved Weight",
+      labelGu: "મેળવેલ વજન",
+      valueEn: "80 kg",
+      valueGu: "૮૦ કિલો"
+    },
+    highlightResult: {
+      en: "-14 kg Dropped",
+      gu: "-૧૪ કિલો ઘટાડો"
+    },
     featured: true,
     verifiedDuration: "Personalized Coaching",
     stats: [
@@ -106,6 +178,24 @@ export const transformations: TransformationItem[] = [
     categoryLabel: "Recovery & Healthy Gain",
     gujaratiCategoryLabel: "રિકવરી અને વજન વધારો",
     image: "/images/transformations/transformation-2-recovery-gain.jpg",
+    beforeImage: "/images/transformations/split/transformation-2-recovery-gain-before.jpg",
+    afterImage: "/images/transformations/split/transformation-2-recovery-gain-after.jpg",
+    startingMeasurement: {
+      labelEn: "Convalescent Weight",
+      labelGu: "બીમારી બાદ વજન",
+      valueEn: "45 kg",
+      valueGu: "૪૫ કિલો"
+    },
+    achievedMeasurement: {
+      labelEn: "Healthy Rebuilt Weight",
+      labelGu: "સ્વસ્થ વજન",
+      valueEn: "55 kg",
+      valueGu: "૫૫ કિલો"
+    },
+    highlightResult: {
+      en: "+10 kg Healthy Gain",
+      gu: "+૧૦ કિલો સ્વસ્થ વધારો"
+    },
     featured: true,
     verifiedDuration: "Recovery & Rebuilding",
     stats: [
@@ -131,6 +221,24 @@ export const transformations: TransformationItem[] = [
     categoryLabel: "Skin & Cellular Wellness",
     gujaratiCategoryLabel: "ત્વચા અને લાઈફસ્ટાઈલ",
     image: "/images/transformations/transformation-5-skin-wellness-clean.jpg",
+    beforeImage: "/images/transformations/split/transformation-5-skin-wellness-clean-before.jpg",
+    afterImage: "/images/transformations/split/transformation-5-skin-wellness-clean-after.jpg",
+    startingMeasurement: {
+      labelEn: "Skin Barrier State",
+      labelGu: "ત્વચાની સ્થિતિ",
+      valueEn: "Acne & Inflammation",
+      valueGu: "ખીલ અને સોજો"
+    },
+    achievedMeasurement: {
+      labelEn: "Current Complexion",
+      labelGu: "હાલનું તેજ",
+      valueEn: "Clear & Refined",
+      valueGu: "સ્વચ્છ અને ચમકદાર"
+    },
+    highlightResult: {
+      en: "Acne Relieved & Clear",
+      gu: "ખીલમાં સંપૂર્ણ રાહત"
+    },
     featured: false,
     verifiedDuration: "Cellular Nutrition Plan",
     stats: [
@@ -156,4 +264,3 @@ export const galleryCategories = [
   { id: "weight-management", label: "Healthy Gain", gujaratiLabel: "સ્વસ્થ વજન વધારો" },
   { id: "lifestyle", label: "Skin & Vitality", gujaratiLabel: "ત્વચા & સ્ફૂર્તિ" }
 ];
-

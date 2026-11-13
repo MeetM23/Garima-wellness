@@ -4,13 +4,19 @@ import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { testimonials } from "@/data/testimonials";
 import { Quote, CheckCircle2 } from "lucide-react";
+import { ShapeQuadrantPetals } from "@/components/ui/ShapesGallery";
 
 export const Testimonials: React.FC = () => {
   const { isGujarati } = useLanguage();
 
   return (
-    <section id="testimonials" className="py-20 lg:py-24 bg-ivory">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-20 lg:py-24 bg-ivory relative overflow-hidden">
+      {/* Shapes Gallery Background Art — Shape 63 Quadrant Petals */}
+      <div className="absolute top-10 right-6 text-primary pointer-events-none hidden md:block" aria-hidden="true">
+        <ShapeQuadrantPetals className="w-48 h-48 text-primary" opacity={0.06} />
+      </div>
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header with Global Typography System */}
         <div className="max-w-2xl mb-12 lg:mb-16">
@@ -42,28 +48,27 @@ export const Testimonials: React.FC = () => {
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="p-7 sm:p-8 rounded-2xl bg-white border border-charcoal-border/70 shadow-xs flex flex-col justify-between"
+              className="p-7 sm:p-8 rounded-2xl bg-white border border-charcoal-border/80 shadow-xs flex flex-col justify-between transition-all duration-200 hover:border-primary/40 hover:shadow-soft"
             >
               <div>
-                <Quote className="w-7 h-7 text-sage mb-4 stroke-1" />
-                <p className="font-poppins text-charcoal text-sm sm:text-base leading-relaxed italic mb-6 font-normal">
+                <Quote className="w-8 h-8 text-sage-dark mb-4 stroke-[1.5]" />
+                <p className="font-sans text-charcoal text-[16px] sm:text-[17px] leading-relaxed italic mb-6 font-normal">
                   “{isGujarati ? item.gujaratiQuote : item.quote}”
                 </p>
               </div>
 
-              <div className="pt-5 border-t border-charcoal-border/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="pt-5 border-t border-charcoal-border/50 flex items-center justify-between">
                 <div>
-                  <h4 className="font-poppins font-semibold text-charcoal text-sm">
+                  <h4 className="font-sans font-semibold text-charcoal text-[15px] sm:text-[16px]">
                     {isGujarati ? item.gujaratiClientName : item.clientName}
                   </h4>
-                  <p className="text-xs font-poppins text-charcoal-subtle font-light">
+                  <p className="text-[13px] sm:text-[14px] font-sans text-charcoal-muted font-normal mt-0.5">
                     {item.location} • {isGujarati ? item.gujaratiTransformationType : item.transformationType}
                   </p>
                 </div>
-
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-ivory border border-charcoal-border text-xs font-poppins font-medium text-primary self-start sm:self-auto">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sage-soft text-primary text-xs font-sans font-medium">
                   <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
-                  <span>{item.verifiedResult}</span>
+                  <span>{isGujarati ? "પ્રમાણિત સભ્ય" : "Verified Outcome"}</span>
                 </div>
               </div>
             </div>

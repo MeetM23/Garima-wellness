@@ -44,16 +44,16 @@ export const Logo: React.FC<LogoProps> = ({
         />
       </div>
 
-      {/* Typography Wordmark in Poppins */}
+      {/* Typography Wordmark in Inter */}
       {showText && (
         <div className="flex flex-col">
           <span
-            className={`font-poppins font-semibold uppercase leading-none ${textSizes[size]} ${primaryTextColor} transition-colors`}
+            className={`font-sans font-bold uppercase leading-none ${textSizes[size]} ${primaryTextColor} transition-colors`}
           >
             GARIMA
           </span>
           <span
-            className={`text-[8.5px] sm:text-[9.5px] tracking-[0.22em] uppercase font-poppins font-medium mt-1 ${subtextColor}`}
+            className={`text-[8.5px] sm:text-[9.5px] tracking-[0.22em] uppercase font-sans font-semibold mt-1 ${subtextColor}`}
           >
             WELLNESS CENTER
           </span>

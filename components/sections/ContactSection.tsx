@@ -11,6 +11,7 @@ import {
   ArrowRight,
   ExternalLink,
 } from "lucide-react";
+import { ShapeCloverArcs } from "@/components/ui/ShapesGallery";
 
 export const ContactSection: React.FC = () => {
   const { isGujarati } = useLanguage();
@@ -31,8 +32,13 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-24 bg-ivory relative">
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 lg:py-24 bg-ivory relative overflow-hidden">
+      {/* Shapes Gallery Background Art — Shape 51 Clover Arcs */}
+      <div className="absolute top-8 right-6 text-primary pointer-events-none hidden md:block" aria-hidden="true">
+        <ShapeCloverArcs className="w-56 h-56 text-primary" opacity={0.06} />
+      </div>
+
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Balanced 2-Column Desktop Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
@@ -57,156 +63,173 @@ export const ContactSection: React.FC = () => {
               )}
             </h2>
 
-            <p className="text-subtitle font-light max-w-lg">
+            <p className="text-subtitle max-w-lg">
               {isGujarati
-                ? "ગરિમા વેલનેસ સેન્ટરમાં અમે દરેક વ્યક્તિને સાંભળીને અંગત માર્ગદર્શન આપીએ છીએ. ઉના સેન્ટર પર રૂબરૂ મુલાકાત અથવા ઘેરબેઠા ઓનલાઇન કન્સલ્ટેશન માટે આજે જ જોડાઓ."
-                : "At Garima Wellness Center, every transformation begins with an open conversation. Connect with Coach Aruna Modashia to understand how personalized nutrition and sustainable daily habits can transform your health."}
+                ? "સીધો WhatsApp સંદેશ મોકલો અથવા ફોર્મ ભરો. કોચ અરૂણા મોડાશીયા તમારી સ્થિતિ સમજીને યોગ્ય માર્ગદર્શન આપશે."
+                : "Send a direct message on WhatsApp or request an assessment below. Coach Aruna will review your metabolic baseline and suggest a sustainable routine."}
             </p>
 
-            {/* Direct WhatsApp Call to Action Button */}
+            {/* Direct Instant WhatsApp Action Button */}
             <div className="pt-2">
               <a
                 href={whatsappDirectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary !py-3.5 !px-7 text-xs font-semibold uppercase tracking-wider group"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-primary hover:bg-primary-dark text-white font-sans font-medium text-[15px] sm:text-[16px] transition-all duration-200 shadow-sm hover:shadow"
               >
-                <MessageCircle className="w-4 h-4 mr-2 text-[#25D366]" />
-                <span>{isGujarati ? "વોટ્સએપ પર વાતચીત શરૂ કરો" : "Chat Directly on WhatsApp"}</span>
-                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                <MessageCircle className="w-5 h-5 text-white" />
+                <span>
+                  {isGujarati ? "WhatsApp પર સીધી વાતચીત શરૂ કરો" : "Message on WhatsApp Directly"}
+                </span>
+                <ArrowRight className="w-4 h-4 text-white/80" />
               </a>
+              <p className="text-xs text-charcoal-muted mt-2">
+                {isGujarati
+                  ? "સામાન્ય રીતે ૧-૨ કલાકમાં જવાબ આપવામાં આવે છે."
+                  : "Direct line to Coach Aruna Modashia. Replies usually within a few hours."}
+              </p>
             </div>
 
-            {/* Trust Quote */}
-            <div className="p-4 rounded-xl bg-white border border-charcoal-border/70 max-w-lg text-xs font-poppins text-charcoal-muted leading-relaxed font-light">
-              <strong className="font-semibold text-charcoal">
-                {isGujarati ? "કોચ અરૂણા મોડાશીયા:" : "Coach Aruna Modashia:"}
-              </strong>{" "}
-              {isGujarati
-                ? "“સ્વાસ્થ્ય એ જ સાચી સંપત્તિ છે. સકારાત્મક માર્ગદર્શન દ્વારા તંદુરસ્ત પરિવારનું નિર્માણ એ જ અમારું મિશન છે.”"
-                : "“Health is true wealth. Our mission is to ensure genuine nutritional understanding reaches every individual and family.”"}
+            {/* Structured Contact Data Card */}
+            <div className="pt-6 border-t border-charcoal-border/70 space-y-4 max-w-md">
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-lg bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <Phone className="w-4.5 h-4.5" />
+                </div>
+                <div>
+                  <h4 className="text-[13px] font-sans font-semibold text-charcoal uppercase tracking-wider">
+                    {isGujarati ? "ફોન અને વોટ્સએપ" : "Call & WhatsApp"}
+                  </h4>
+                  <a
+                    href={`tel:${siteConfig.contact.phone}`}
+                    className="text-[15px] font-sans font-medium text-primary hover:underline block mt-0.5"
+                  >
+                    {siteConfig.contact.displayPhone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-lg bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="w-4.5 h-4.5" />
+                </div>
+                <div>
+                  <h4 className="text-[13px] font-sans font-semibold text-charcoal uppercase tracking-wider">
+                    {isGujarati ? "સેન્ટરનું સરનામું" : "Wellness Center Location"}
+                  </h4>
+                  <p className="text-[14px] font-sans text-charcoal-muted mt-0.5 leading-relaxed">
+                    {isGujarati
+                      ? siteConfig.contact.address.fullGujarati
+                      : `${siteConfig.contact.address.line1}, ${siteConfig.contact.address.landmark}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} - ${siteConfig.contact.address.pincode}`}
+                  </p>
+                  <a
+                    href={siteConfig.contact.googleMapsSearchUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[13px] font-sans text-terracotta hover:underline font-medium mt-1"
+                  >
+                    <span>{isGujarati ? "ગૂગલ મેપ્સ પર જુઓ" : "Open in Google Maps"}</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-lg bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
+                  <Clock className="w-4.5 h-4.5" />
+                </div>
+                <div>
+                  <h4 className="text-[13px] font-sans font-semibold text-charcoal uppercase tracking-wider">
+                    {isGujarati ? "સેન્ટર સમય" : "Consultation Hours"}
+                  </h4>
+                  <p className="text-[14px] font-sans text-charcoal-muted mt-0.5">
+                    {siteConfig.contact.timing}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column: Clean Organized Contact Card & Quick Inquiry */}
-          <div className="lg:col-span-6">
-            <div className="p-7 sm:p-8 rounded-2xl bg-white border border-charcoal-border/80 shadow-xs space-y-6">
-              
-              <h3 className="heading-card">
-                {isGujarati ? "સંપર્ક માહિતી અને કેન્દ્રનું સરનામું" : "Contact & Center Information"}
-              </h3>
+          {/* Right Column: Clean Assessment Request Form */}
+          <div className="lg:col-span-6 bg-white p-7 sm:p-9 rounded-2xl border border-charcoal-border/80 shadow-soft">
+            <h3 className="heading-card mb-2">
+              {isGujarati ? "ઓનલાઇન કન્સલ્ટેશન ફોર્મ" : "Request Free Health Assessment"}
+            </h3>
+            <p className="text-[14px] sm:text-[15px] text-charcoal-muted mb-6">
+              {isGujarati
+                ? "તમારી પ્રાથમિક વિગત મોકલો, જેથી કોચ તમારી જરૂરિયાત અનુસાર વાતચીત કરી શકે."
+                : "Fill this quick note and our team will connect with your personalized roadmap via WhatsApp."}
+            </p>
 
-              {/* Contact Information List */}
-              <div className="space-y-4 text-xs font-poppins text-charcoal-muted">
-                
-                {/* Phone & WhatsApp */}
-                <div className="flex items-start gap-3.5 pb-4 border-b border-charcoal-border/40">
-                  <div className="w-9 h-9 rounded-xl bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-label !text-[10px] text-charcoal-subtle block">
-                      {isGujarati ? "ફોન અને વોટ્સએપ" : "Direct Phone & WhatsApp"}
-                    </span>
-                    <a
-                      href={`tel:${siteConfig.contact.phone}`}
-                      className="text-base font-poppins font-semibold text-charcoal hover:text-primary transition-colors block mt-0.5"
-                    >
-                      {siteConfig.contact.displayPhone}
-                    </a>
-                    <span className="text-[11px] text-charcoal-subtle font-light">
-                      Mon–Sat: 7:00 AM – 8:00 PM
-                    </span>
-                  </div>
-                </div>
-
-                {/* Center Location */}
-                <div className="flex items-start gap-3.5 pb-4 border-b border-charcoal-border/40">
-                  <div className="w-9 h-9 rounded-xl bg-sage-soft text-primary flex items-center justify-center shrink-0 mt-0.5">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div className="space-y-0.5">
-                    <span className="text-label !text-[10px] text-charcoal-subtle block">
-                      {isGujarati ? "સેન્ટર સરનામું" : "Center Address (Una)"}
-                    </span>
-                    <p className="font-semibold text-charcoal text-xs sm:text-sm">
-                      Garima Wellness Center
-                    </p>
-                    <p className="font-light">
-                      {siteConfig.contact.address.line1}, {siteConfig.contact.address.landmark}
-                    </p>
-                    <p className="font-light">
-                      {siteConfig.contact.address.city}, Dist. {siteConfig.contact.address.district}, {siteConfig.contact.address.state} - {siteConfig.contact.address.pincode}
-                    </p>
-                    <a
-                      href={siteConfig.contact.googleMapsSearchUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[11px] font-medium text-primary hover:underline pt-1"
-                    >
-                      <span>{isGujarati ? "ગૂગલ મેપ્સ પર લોકેશન જુઓ" : "Open in Google Maps"}</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
-                </div>
-
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-[13px] sm:text-[14px] font-sans font-medium text-charcoal mb-1.5">
+                  {isGujarati ? "તમારું પૂરું નામ" : "Full Name"}
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder={isGujarati ? "દા.ત. રમેશભાઈ પટેલ" : "e.g. Ramesh Patel"}
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3.5 rounded-xl border border-charcoal-border/80 bg-ivory text-charcoal text-[16px] focus:outline-none focus:border-primary transition-colors font-sans"
+                />
               </div>
 
-              {/* Quick Inquiry Form */}
+              <div>
+                <label className="block text-[13px] sm:text-[14px] font-sans font-medium text-charcoal mb-1.5">
+                  {isGujarati ? "વોટ્સએપ મોબાઈલ નંબર" : "WhatsApp Mobile Number"}
+                </label>
+                <input
+                  type="tel"
+                  required
+                  placeholder={isGujarati ? "૧૦ અંકનો મોબાઈલ નંબર" : "10-digit mobile number"}
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-3.5 rounded-xl border border-charcoal-border/80 bg-ivory text-charcoal text-[16px] focus:outline-none focus:border-primary transition-colors font-sans"
+                />
+              </div>
+
+              <div>
+                <label className="block text-[13px] sm:text-[14px] font-sans font-medium text-charcoal mb-1.5">
+                  {isGujarati ? "મુખ્ય સ્વાસ્થ્ય લક્ષ્ય" : "Primary Health Goal"}
+                </label>
+                <select
+                  value={formData.goal}
+                  onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
+                  className="w-full px-4 py-3.5 rounded-xl border border-charcoal-border/80 bg-ivory text-charcoal text-[16px] focus:outline-none focus:border-primary transition-colors font-sans"
+                >
+                  <option value="Weight & Visceral Fat Loss">
+                    {isGujarati ? "વજન અને પેટની ચરબી ઘટાડવી" : "Weight & Visceral Fat Loss"}
+                  </option>
+                  <option value="Healthy Muscle & Weight Gain">
+                    {isGujarati ? "સ્વસ્થ વજન અને મસલ વધારવું" : "Healthy Weight Gain"}
+                  </option>
+                  <option value="Skin Wellness & Cellular Health">
+                    {isGujarati ? "ત્વચા નિખાર અને એલર્જી રાહત" : "Skin Wellness & Cellular Health"}
+                  </option>
+                  <option value="Daily Stamina & Energy Balance">
+                    {isGujarati ? "દૈનિક ઊર્જા અને સ્ફૂર્તિ વધારવી" : "Daily Stamina & Vitality"}
+                  </option>
+                </select>
+              </div>
+
               <div className="pt-2">
-                <span className="text-label !text-[10px] text-charcoal-subtle block mb-3">
-                  {isGujarati ? "ઝડપી પૂછપરછ" : "Quick Consultation Request"}
-                </span>
-
-                <form onSubmit={handleSubmit} className="space-y-3">
-                  <div>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your Full Name *"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-charcoal-border focus:border-primary focus:ring-1 focus:ring-primary outline-none text-xs font-poppins bg-ivory/50 transition-colors"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="Mobile / WhatsApp *"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-charcoal-border focus:border-primary focus:ring-1 focus:ring-primary outline-none text-xs font-poppins bg-ivory/50 transition-colors"
-                      />
-                    </div>
-
-                    <div>
-                      <select
-                        value={formData.goal}
-                        onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-charcoal-border focus:border-primary focus:ring-1 focus:ring-primary outline-none text-xs font-poppins bg-ivory/50 transition-colors"
-                      >
-                        <option value="Weight & Visceral Fat Loss">Weight & Fat Loss</option>
-                        <option value="Healthy Weight Gain & Recovery">Healthy Weight Gain</option>
-                        <option value="Daily Stamina & Energy">Daily Stamina & Energy</option>
-                        <option value="Cellular Nutrition & Skin Clarity">Skin & Cellular Health</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full btn-primary !py-3 text-xs uppercase tracking-wider justify-center"
-                  >
-                    <span>Send via WhatsApp</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                  </button>
-                </form>
+                <button
+                  type="submit"
+                  className="w-full py-4 px-6 rounded-xl bg-primary hover:bg-primary-dark text-white font-sans font-medium text-[15px] sm:text-[16px] transition-colors shadow-sm flex items-center justify-center gap-2 group cursor-pointer"
+                >
+                  <span>{isGujarati ? "કન્સલ્ટેશન વિગત મોકલો" : "Submit Consultation Note"}</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </button>
               </div>
 
-            </div>
+              <p className="text-xs text-charcoal-muted text-center mt-3">
+                {isGujarati
+                  ? "તમારી માહિતી સંપૂર્ણપણે સુરક્ષિત રહેશે."
+                  : "Your contact details are strictly confidential and used solely for consultation."}
+              </p>
+            </form>
           </div>
 
         </div>
