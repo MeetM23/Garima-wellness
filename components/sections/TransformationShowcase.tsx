@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { transformations, TransformationItem } from "@/data/transformations";
@@ -9,13 +9,74 @@ import { ShapeSunMedallion, ShapeConcaveStar } from "@/components/ui/ShapesGalle
 
 export const TransformationShowcase: React.FC = () => {
   const { isGujarati } = useLanguage();
-  const [isTouchPaused, setIsTouchPaused] = useState(false);
+
+  // Single internal duplication for seamless wrap
+  const duplicatedItems = [...transformations, ...transformations];
+
+  // Mobile manual swiping & auto-scroll refs
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
+  const isInteractingRef = useRef<boolean>(false);
+  const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const el = mobileScrollRef.current;
+    if (!el) return;
+
+    let rafId: number;
+
+    const step = () => {
+      if (!isInteractingRef.current) {
+        el.scrollLeft += 0.75;
+        const halfWidth = el.scrollWidth / 2;
+        if (halfWidth > 0 && el.scrollLeft >= halfWidth) {
+          el.scrollLeft -= halfWidth;
+        } else if (el.scrollLeft <= 0) {
+          el.scrollLeft += halfWidth;
+        }
+      }
+      rafId = requestAnimationFrame(step);
+    };
+
+    rafId = requestAnimationFrame(step);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      if (resumeTimerRef.current) {
+        clearTimeout(resumeTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleTouchStart = () => {
+    isInteractingRef.current = true;
+    if (resumeTimerRef.current) {
+      clearTimeout(resumeTimerRef.current);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (resumeTimerRef.current) {
+      clearTimeout(resumeTimerRef.current);
+    }
+    // Resume auto-scrolling with a 2-second delay after user releases touch
+    resumeTimerRef.current = setTimeout(() => {
+      isInteractingRef.current = false;
+    }, 2000);
+  };
 
   // Render a clean single card with ONLY the 4 requested elements
-  const renderCard = (item: TransformationItem, keySuffix: string, priority: boolean = false) => (
+  const renderCard = (
+    item: TransformationItem,
+    keySuffix: string,
+    isMobile: boolean = false
+  ) => (
     <article
       key={`${item.id}-${keySuffix}`}
-      className="w-[305px] sm:w-[335px] md:w-[360px] shrink-0 rounded-2xl bg-white border border-charcoal-border/80 overflow-hidden flex flex-col justify-between shadow-xs cursor-default select-none"
+      className={`${
+        isMobile
+          ? "w-[290px] sm:w-[320px] mr-4 sm:mr-6"
+          : "w-[360px] mr-6"
+      } shrink-0 rounded-2xl bg-white border border-charcoal-border/80 overflow-hidden flex flex-col justify-between shadow-xs cursor-default select-none`}
     >
       <div>
         {/* 1. ORIGINAL TRANSFORMATION PHOTOGRAPH (Clean, No overlays/badges) */}
@@ -24,13 +85,12 @@ export const TransformationShowcase: React.FC = () => {
             src={item.image}
             alt={isGujarati ? item.gujaratiTitle : item.title}
             fill
-            sizes="(max-width: 640px) 305px, 360px"
-            priority={priority}
+            sizes={isMobile ? "300px" : "360px"}
             className="object-cover object-top"
           />
         </div>
 
-        {/* 2. STARTING WEIGHT → ACHIEVED WEIGHT (If available, no extra chips/badges) */}
+        {/* 2. STARTING WEIGHT → ACHIEVED WEIGHT (If available, no extra badges) */}
         {item.startingMeasurement && item.achievedMeasurement && (
           <div className="px-4 py-2.5 bg-[#F4F6F0] border-b border-charcoal-border/60 flex items-center gap-2 text-xs font-medium text-charcoal">
             <span className="text-charcoal-muted">
@@ -84,28 +144,28 @@ export const TransformationShowcase: React.FC = () => {
         </div>
       </div>
 
-      {/* Infinite Automatic Horizontal Marquee (Continuous, No scrollbars, Pauses on hover/touch) */}
-      <div
-        className="marquee-wrapper w-full overflow-hidden select-none py-2"
-        onTouchStart={() => setIsTouchPaused(true)}
-        onTouchEnd={() => setIsTouchPaused(false)}
-        onTouchCancel={() => setIsTouchPaused(false)}
-      >
-        <div
-          className="marquee-track flex w-max animate-marquee"
-          style={{
-            animationPlayState: isTouchPaused ? "paused" : undefined,
-          }}
-        >
-          {/* Track Sequence 1 */}
-          <div className="flex gap-6 pr-6">
-            {transformations.map((item, idx) => renderCard(item, "set1", idx < 3))}
-          </div>
+      {/* DESKTOP LAYER: Continuous CSS Marquee (Pause on hover, single unified track) */}
+      <div className="hidden md:block marquee-wrapper w-full overflow-hidden select-none py-2">
+        <div className="marquee-track flex w-max animate-marquee pl-4 sm:pl-6 lg:pl-8">
+          {duplicatedItems.map((item, idx) =>
+            renderCard(item, `desktop-${idx}`, false)
+          )}
+        </div>
+      </div>
 
-          {/* Track Sequence 2 (Identical duplicate for seamless, zero-jump loop) */}
-          <div className="flex gap-6 pr-6" aria-hidden="true">
-            {transformations.map((item) => renderCard(item, "set2", false))}
-          </div>
+      {/* MOBILE LAYER: Swipeable Native Horizontal Scroll with Auto-Scroll & Touch Pause */}
+      <div
+        ref={mobileScrollRef}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
+        className="md:hidden overflow-x-auto scrollbar-none w-full select-none py-2 pl-4"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        <div className="flex w-max">
+          {duplicatedItems.map((item, idx) =>
+            renderCard(item, `mobile-${idx}`, true)
+          )}
         </div>
       </div>
     </section>
