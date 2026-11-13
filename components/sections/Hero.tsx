@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { ShapeOrganicBlossom, ShapeConcaveStar } from "@/components/ui/ShapesGallery";
@@ -18,10 +19,26 @@ export const Hero: React.FC = () => {
 
   return (
     <section id="hero" className="relative pt-28 pb-20 md:pt-36 md:pb-24 lg:pt-40 lg:pb-28 bg-ivory overflow-hidden">
+      {/* Full-width Background Image with Warm Palette Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <Image
+          src="/images/hero/hero-wellness-lifestyle.jpg"
+          alt="Healthy Indian family enjoying wholesome nutrition together"
+          fill
+          priority
+          quality={95}
+          sizes="100vw"
+          className="object-cover object-[78%_center] sm:object-[74%_center] md:object-[70%_center]"
+        />
+        {/* Subtle, warm gradient overlay for optimal text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ivory via-ivory/90 sm:via-ivory/80 md:via-ivory/70 to-ivory/30 md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ivory via-transparent to-ivory/30" />
+      </div>
+
       {/* Shapes Gallery Background Art — Intentional, Balanced & Subtle */}
-      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-        {/* Shape 47: Organic Blossom - Top Right behind hero content */}
-        <div className="absolute -top-10 -right-10 lg:top-8 lg:right-12 text-primary">
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-[1]" aria-hidden="true">
+        {/* Shape 47: Organic Blossom - Upper Left side */}
+        <div className="absolute -top-10 -left-10 lg:top-8 lg:left-8 text-primary">
           <ShapeOrganicBlossom className="w-56 h-56 sm:w-72 sm:h-72 lg:w-96 lg:h-96 text-primary" opacity={0.06} />
         </div>
         {/* Shape 40: Concave Star - Earthy Terracotta left accent */}
@@ -34,7 +51,7 @@ export const Hero: React.FC = () => {
         <div className="max-w-3xl">
 
           {/* Pill Eyebrow with Small Shapes Gallery Star */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-charcoal-border/80 shadow-xs mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-xs border border-charcoal-border/80 shadow-xs mb-6">
             <ShapeConcaveStar className="w-3.5 h-3.5 text-[#C87A5B] shrink-0" opacity={0.8} />
             <span className="text-label text-charcoal">
               {isGujarati ? "ગરિમા વેલનેસ સેન્ટર • ઉના, ગીર સોમનાથ" : "Garima Wellness Center • Una, Gujarat"}

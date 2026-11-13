@@ -3,7 +3,7 @@
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { testimonials } from "@/data/testimonials";
-import { Quote, CheckCircle2 } from "lucide-react";
+import { Quote } from "lucide-react";
 import { ShapeQuadrantPetals } from "@/components/ui/ShapesGallery";
 
 export const Testimonials: React.FC = () => {
@@ -57,24 +57,30 @@ export const Testimonials: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-5 border-t border-charcoal-border/50 flex items-center justify-between">
-                <div>
-                  <h4 className="font-sans font-semibold text-charcoal text-[15px] sm:text-[16px]">
-                    {isGujarati ? item.gujaratiClientName : item.clientName}
-                  </h4>
-                  <p className="text-[13px] sm:text-[14px] font-sans text-charcoal-muted font-normal mt-0.5">
-                    {item.location} • {isGujarati ? item.gujaratiTransformationType : item.transformationType}
-                  </p>
-                </div>
-                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sage-soft text-primary text-xs font-sans font-medium">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
-                  <span>{isGujarati ? "પ્રમાણિત સભ્ય" : "Verified Outcome"}</span>
-                </div>
+              <div className="pt-5 border-t border-charcoal-border/50">
+                <h4 className="font-sans font-semibold text-charcoal text-[15px] sm:text-[16px]">
+                  {isGujarati ? item.gujaratiClientName : item.clientName}
+                </h4>
+                <p className="text-[13px] sm:text-[14px] font-sans text-charcoal-muted font-normal mt-0.5">
+                  {item.location} • {isGujarati ? item.gujaratiTransformationType : item.transformationType}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
+      </div>
+
+      {/* Full-width Responsive Bottom Landscape Illustration (ils_02.svg) */}
+      <div
+        className="testimonial-illustration absolute bottom-0 left-0 right-0 w-full pointer-events-none select-none z-0 overflow-hidden leading-none"
+        aria-hidden="true"
+      >
+        <img
+          src="/images/illustrations/ils_02.svg"
+          alt=""
+          className="w-full h-auto min-w-full block"
+        />
       </div>
     </section>
   );
